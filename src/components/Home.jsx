@@ -3,10 +3,12 @@ import MyVault from './MyVault';
 import Sidebar from './Sidebar';
 import { useSelector } from 'react-redux';
 import Addnew from './Addnew';
+import Disclaimer from "./Disclaimer";
 
 const Home = () => {
     const { activeComponent,sidebarHam } = useSelector((state) => state.ui);
     const { addopen } = useSelector((state) => state.passwords);
+    
 
     const renderComponent = () => {
         switch (activeComponent) {
@@ -18,6 +20,7 @@ const Home = () => {
     };
     return (
         <div className='flex'>
+            <Disclaimer/>
             <Sidebar />
 
             <div className={`${sidebarHam===true?"hidden": "w-[100vw]"} sm:w-[75vw] xl:w-[85vw] h-[100vh]`}>
